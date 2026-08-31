@@ -5,8 +5,15 @@ Apple silicon Macs, built for watching capacity while local LLMs and other heavy
 work are running.
 
 ```sh
-brew install --cask emaitchess/searoom/searoom
+brew tap emaitchess/searoom
+brew trust --tap emaitchess/searoom
+brew install --cask searoom
 ```
+
+The `brew trust` step is not optional. Homebrew refuses to load casks from
+third-party taps until you explicitly trust them, and without it the install
+fails with "Refusing to load cask from untrusted tap". Trust is recorded in
+`~/.homebrew/trust.json` and only has to be granted once.
 
 That installs the signed, notarized build from the
 [releases](https://github.com/emaitchess/searoom/releases) of the
