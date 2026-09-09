@@ -17,6 +17,10 @@ cask "searoom" do
   depends_on arch: :arm64
 
   app "Searoom.app"
+  # The same signed executable serves the GUI and the `searoom` CLI. Homebrew
+  # manages a lowercase symlink in its bin directory: recreated on upgrade,
+  # removed on uninstall, never a copy, so the signature is untouched.
+  binary "#{appdir}/Searoom.app/Contents/MacOS/Searoom", target: "searoom"
 
   # Searoom keeps everything on the Mac, so uninstalling should genuinely remove
   # it: bounded trend history, preferences, and the saved window state.

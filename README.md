@@ -29,6 +29,32 @@ brew trust --tap emaitchess/searoom
 brew install --cask searoom
 ```
 
+## The `searoom` command
+
+Installation also puts a lowercase `searoom` command on your PATH. The app and
+the command are the same signed executable; Homebrew creates a symlink in its
+bin directory, recreates it on every upgrade, and removes it on uninstall.
+
+```sh
+searoom help          # every command, option, and exit code
+searoom sample        # one primed telemetry sample as JSON
+searoom status        # current pressure, limiting signals, sustained context
+searoom help --json   # a machine-readable catalog for agents
+```
+
+Every command is read-only and offline except `searoom install-cli`, which
+creates `~/.local/bin/searoom` for DMG installs (Homebrew installs do not need
+it), and `searoom uninstall-cli`, which removes it. To skip the command
+entirely, install with `--no-binaries`:
+
+```sh
+brew install --cask --no-binaries searoom
+```
+
+If an unrelated `searoom` file already exists in Homebrew's bin directory, the
+cask installation fails rather than overwriting it; remove or rename the other
+file first.
+
 ## Updating
 
 Searoom has no built-in updater and makes no network requests on its own, so
