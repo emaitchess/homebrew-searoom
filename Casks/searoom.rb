@@ -1,6 +1,6 @@
 cask "searoom" do
-  version "0.5.1"
-  sha256 "eb887185b236f5066482b6455265b1bbd689124bc1e1c61ade51a17c2069dee2"
+  version "0.6.0"
+  sha256 "732ba70a6e1b73bee32c12e33dac07532f3bb6d877e66b7f8d5a1373198d4ecd"
 
   url "https://github.com/emaitchess/searoom/releases/download/v#{version}/Searoom.dmg",
       verified: "github.com/emaitchess/searoom/"
